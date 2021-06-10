@@ -1,2 +1,2 @@
-com/fju/Tester.java
- com.fju.Tester
+com/gmail/chiyc88/finalproject/Main.java
+ com.gmail.chiyc88.finalproject.Main
