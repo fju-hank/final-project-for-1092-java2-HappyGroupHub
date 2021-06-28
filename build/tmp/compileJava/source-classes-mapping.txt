@@ -12,3 +12,5 @@ com/gmail/chiyc88/finalproject/inherit/Drink.java
  com.gmail.chiyc88.finalproject.inherit.Drink
 com/gmail/chiyc88/finalproject/inherit/Main.java
  com.gmail.chiyc88.finalproject.inherit.Main
+com/gmail/chiyc88/finalproject/internet/Main.java
+ com.gmail.chiyc88.finalproject.internet.Main
