@@ -8,17 +8,25 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Drink Machine!\n--------------------");
         System.out.print("How much money do you have: ");
+        int buys = 0;
         int money = scanner.nextInt();
-        money = selectItem(money);
         while (money != 0) {
-            System.out.println("Buy? (Y/N)");
-            if (scanner.next() == "Y") {
+            if (buys == 0) {
+                buys++;
                 selectItem(money);
             } else {
-                System.out.println("Bye!");
+                System.out.println("Continue Buying? (Y/N)");
+                if (scanner.hasNext("Y")) {
+                    buys++;
+                    selectItem(money);
+                } else {
+                    System.out.println("Bye!");
+                    break;
+                }
             }
         }
     }
+
     private static int selectItem(int money) {
         Scanner scanner = new Scanner(System.in);
         Cola cola = new Cola();
@@ -31,7 +39,7 @@ public class Main {
         toDrink.put(3, coffee);
 
         listItems();
-        System.out.print("Enter: 1, 2, 3");
+        System.out.print("Enter drinks you want(1, 2, 3): ");
         int buy = scanner.nextInt();
         Drink drink = toDrink.get(buy);
         System.out.print("Enter amount: ");
@@ -44,7 +52,8 @@ public class Main {
             return -1;
         } else {
             money = money - total;
-            return total;
+            drink.removeStocks(amount);
+            return money;
         }
         return -1;
     }
