@@ -2,13 +2,11 @@ package com.gmail.chiyc88.finalproject.internet;
 
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
@@ -26,8 +24,15 @@ public class Main {
             scanner.close();
 
             JsonObject convertedObject = new Gson().fromJson(inline, JsonObject.class);
-            String ip = convertedObject.get("ip").getAsString();
-            System.out.println(ip);
+            String realIp = convertedObject.get("ip").getAsString();
+            JsonObject players = convertedObject.get("players").getAsJsonObject();
+            System.out.println(">> PlayfunI Network <<");
+            System.out.println("IP address: " + realIp);
+            System.out.println("Players: " + players);
+
+
+//            JsonArray players = convertedObject.get("players").getAsJsonArray();
+//            System.out.println(players.get(0).getAsInt());
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
